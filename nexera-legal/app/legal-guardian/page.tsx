@@ -53,15 +53,15 @@ export default function LegalGuardian() {
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-white">
       {/* Header */}
-      <header className="bg-gray-800 p-4 text-center text-lg font-semibold shadow-md flex justify-between items-center">
-        <span>Legal Insight & Compliance Guardian</span>
+      <header className="bg-gray-800 p-4 text-center text-lg font-semibold shadow-md flex justify-between items-center w-full">
+        <span className="text-sm sm:text-lg">Legal Insight & Compliance Guardian</span>
         <button onClick={newChat} className="bg-red-600 hover:bg-red-700 p-2 rounded-lg text-white shadow-md flex items-center gap-2">
           <RefreshCcw size={18} /> New Chat
         </button>
       </header>
 
       {/* Chat Container */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 max-w-4xl mx-auto w-full">
         {messages.map((msg, index) => (
           <motion.div
             key={index}
@@ -72,7 +72,7 @@ export default function LegalGuardian() {
           >
             {msg.role === "ai" && <Gavel className="text-yellow-500" size={24} />}
             <div
-              className={`px-4 py-2 max-w-xs rounded-lg shadow-md text-sm flex items-center gap-2 ${
+              className={`px-4 py-2 max-w-xs sm:max-w-md md:max-w-lg rounded-2xl shadow-md text-sm flex items-center gap-2 ${
                 msg.role === "user"
                   ? "bg-blue-600 text-white"
                   : "bg-gray-700 text-gray-200"
@@ -97,30 +97,30 @@ export default function LegalGuardian() {
       </div>
 
       {/* Disclaimer */}
-      <div className="bg-gray-700 text-gray-300 text-sm p-3 text-center">
+      <div className="text-gray-400 text-xs sm:text-sm p-3 text-center">
         ⚠️ Disclaimer: This AI system is still in development and may make mistakes. For serious legal matters, consult a professional.
       </div>
 
       {/* Input Box */}
-      <div className="bg-gray-800 p-4 flex items-center gap-3">
+      <div className="bg-gray-800 p-2 sm:p-4 flex items-center gap-2 sm:gap-3 w-full max-w-4xl mx-auto mb-4 rounded-lg shadow-lg">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask a legal question..."
-          className="flex-1 bg-gray-700 text-white p-3 rounded-lg outline-none shadow-md"
+          className="flex-1 bg-gray-700 text-white p-2 sm:p-3 rounded-lg outline-none shadow-md w-full"
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
-        <button className="bg-gray-700 p-3 rounded-lg text-white shadow-md">
+        <button className="bg-gray-700 p-2 sm:p-3 rounded-lg text-white shadow-md">
           <Mic size={20} />
         </button>
         <input type="file" onChange={handleFileUpload} className="hidden" id="fileUpload" />
-        <label htmlFor="fileUpload" className="bg-gray-700 p-3 rounded-lg text-white shadow-md cursor-pointer">
+        <label htmlFor="fileUpload" className="bg-gray-700 p-2 sm:p-3 rounded-lg text-white shadow-md cursor-pointer">
           <FileText size={20} />
         </label>
         <button
           onClick={sendMessage}
-          className="bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-white shadow-md"
+          className="bg-blue-600 hover:bg-blue-700 p-2 sm:p-3 rounded-lg text-white shadow-md"
         >
           <Send size={20} />
         </button>
