@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, Mic, FileText, User, Gavel, RefreshCcw } from "lucide-react";
+import { Send, Mic, FileText, User, Gavel, RefreshCcw, Menu } from "lucide-react";
 
 interface Message {
   role: "user" | "ai";
@@ -15,6 +15,8 @@ export default function LegalGuardian() {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [file, setFile] = useState<File | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [chatHistory, setChatHistory] = useState<Message[][]>([]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,15 +47,43 @@ export default function LegalGuardian() {
   };
 
   const newChat = () => {
+    if (messages.length > 0) {
+      setChatHistory((prev) => [...prev, messages]);
+    }
     setMessages([]);
     setInput("");
     setFile(null);
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900 text-white">
+    <div className="flex flex-col h-screen bg-gray-900 text-white relative">
+      {/* Sidebar */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: sidebarOpen ? 0 : "-100%" }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-0 left-0 w-64 h-full bg-gray-800 p-4 shadow-lg z-50"
+      >
+        <button onClick={() => setSidebarOpen(false)} className="text-white p-2">✖</button>
+        <h2 className="text-lg font-semibold mb-4">Chat History</h2>
+        <div className="overflow-y-auto max-h-[80vh] space-y-2">
+          {chatHistory.map((chat, index) => (
+            <button
+              key={index}
+              className="w-full text-left p-2 bg-gray-700 rounded-lg hover:bg-gray-600"
+              onClick={() => setMessages(chat)}
+            >
+              Chat {index + 1}
+            </button>
+          ))}
+        </div>
+      </motion.div>
+
       {/* Header */}
       <header className="bg-gray-800 p-4 text-center text-lg font-semibold shadow-md flex justify-between items-center w-full">
+        <button onClick={() => setSidebarOpen(true)} className="text-white p-2">
+          <Menu size={24} />
+        </button>
         <span className="text-sm sm:text-lg">Legal Insight & Compliance Guardian</span>
         <button onClick={newChat} className="bg-red-600 hover:bg-red-700 p-2 rounded-lg text-white shadow-md flex items-center gap-2">
           <RefreshCcw size={18} /> New Chat
