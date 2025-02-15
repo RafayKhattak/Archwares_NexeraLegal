@@ -85,9 +85,13 @@ export default function LegalGuardian() {
           <Menu size={24} />
         </button>
         <span className="text-sm sm:text-lg">Legal Insight & Compliance Guardian</span>
-        <button onClick={newChat} className="bg-red-600 hover:bg-red-700 p-2 rounded-lg text-white shadow-md flex items-center gap-2">
-          <RefreshCcw size={18} /> New Chat
-        </button>
+        <button
+  onClick={newChat}
+  className="bg-green-600 hover:bg-green-700 p-1 sm:p-2 rounded-lg text-white shadow-md flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
+>
+  <RefreshCcw size={16} className="sm:size-18" /> New Chat
+</button>
+
       </header>
 
       {/* Chat Container */}
