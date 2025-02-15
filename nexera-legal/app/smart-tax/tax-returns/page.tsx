@@ -4,17 +4,23 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function TaxReturns() {
-  const [form, setForm] = useState({
+  const initialFormState = {
     income: "",
     deductible: "",
     otherDeductions: "",
     prepaidTax: "",
     taxYear: "",
     taxpayerType: "",
-  });
+  };
+
+  const [form, setForm] = useState(initialFormState);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleReset = () => {
+    setForm(initialFormState);
   };
 
   return (
@@ -31,17 +37,17 @@ export default function TaxReturns() {
         <p className="text-gray-400 mb-6">Prepare and file your tax returns with automated accuracy.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <input type="text" name="income" placeholder="Enter your total income" className="bg-gray-800 p-3 rounded-md" onChange={handleChange} />
-          <input type="text" name="deductible" placeholder="Enter your deductible expenses" className="bg-gray-800 p-3 rounded-md" onChange={handleChange} />
-          <input type="text" name="otherDeductions" placeholder="Enter any additional tax deductions" className="bg-gray-800 p-3 rounded-md" onChange={handleChange} />
-          <input type="text" name="prepaidTax" placeholder="Enter prepaid tax amounts" className="bg-gray-800 p-3 rounded-md" onChange={handleChange} />
-          <select name="taxYear" className="bg-gray-800 p-3 rounded-md" onChange={handleChange}>
+          <input type="text" name="income" placeholder="Enter your total income" className="bg-gray-800 p-3 rounded-md" value={form.income} onChange={handleChange} />
+          <input type="text" name="deductible" placeholder="Enter your deductible expenses" className="bg-gray-800 p-3 rounded-md" value={form.deductible} onChange={handleChange} />
+          <input type="text" name="otherDeductions" placeholder="Enter any additional tax deductions" className="bg-gray-800 p-3 rounded-md" value={form.otherDeductions} onChange={handleChange} />
+          <input type="text" name="prepaidTax" placeholder="Enter prepaid tax amounts" className="bg-gray-800 p-3 rounded-md" value={form.prepaidTax} onChange={handleChange} />
+          <select name="taxYear" className="bg-gray-800 p-3 rounded-md" value={form.taxYear} onChange={handleChange}>
             <option value="">Select Tax Year</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
-            <option value="2024">2025</option>
+            <option value="2025">2025</option>
           </select>
-          <select name="taxpayerType" className="bg-gray-800 p-3 rounded-md" onChange={handleChange}>
+          <select name="taxpayerType" className="bg-gray-800 p-3 rounded-md" value={form.taxpayerType} onChange={handleChange}>
             <option value="">Select Taxpayer Type</option>
             <option value="individual">Individual</option>
             <option value="business">Business</option>
@@ -50,10 +56,10 @@ export default function TaxReturns() {
       </motion.div>
 
       {/* Buttons */}
-      <div className="mt-8">
+      <div className="mt-8 flex flex-wrap gap-4">
         <button className="bg-blue-500 text-white px-6 py-3 rounded-md">Get Assistance</button>
+        <button onClick={handleReset} className="bg-red-500 text-white px-6 py-3 rounded-md">Reset Form</button>
       </div>
-      
     </div>
   );
 }
