@@ -119,6 +119,9 @@ Nexera Legal™ is an **AI-powered legal automation platform** designed specific
 | **Frontend** | Vercel (nexeralegal.com) |  
 | **Backend** | AWS EC2 (Django-based APIs) |  
 | **Storage** | AWS S3 (Legal documents & audio) |  
+| **HNSWLib** | In-Memory VectorDB|
+
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/e38b0817-4a09-43c6-9865-a30bf3ec09ab)
 
 ---
 
