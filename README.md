@@ -1,3 +1,4 @@
+![1-removebg-preview](https://github.com/user-attachments/assets/e2c9e7fe-1d3e-4ca9-9046-8066ac7747d9)
 # **Nexera Legal™**  
 ### *AI-Driven Legal Automation for Pakistan*  
 🚀 *NETSOL AI Hackathon 2025 Submission*  
@@ -113,7 +114,7 @@ Nexera Legal™ is an **AI-powered legal automation platform** designed specific
 | Component | Service |  
 |------------|--------|  
 | **Frontend** | Vercel (nexeralegal.com) |  
-| **Backend** | AWS EC2 (FastAPI-based APIs) |  
+| **Backend** | AWS EC2 (Django-based APIs) |  
 | **Storage** | AWS S3 (Legal documents & audio) |  
 
 ---
