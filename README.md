@@ -1,5 +1,8 @@
-![1-removebg-preview](https://github.com/user-attachments/assets/e2c9e7fe-1d3e-4ca9-9046-8066ac7747d9)
-# **Nexera Legal™**  
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/e2c9e7fe-1d3e-4ca9-9046-8066ac7747d9" alt="Nexera Legal Logo" width="100">
+  <h1 style="display: inline-block; margin-left: 10px;">Nexera Legal™</h1>
+</p>
+
 ### *AI-Driven Legal Automation for Pakistan*  
 🚀 *NETSOL AI Hackathon 2025 Submission*  
 
