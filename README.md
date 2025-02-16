@@ -131,19 +131,6 @@ Nexera Legal™ is an **AI-powered legal automation platform** designed specific
 - **Modern, attractive design**  
 - **No authentication required for MVP**  
 
-📁 **Project Structure**:  
-nexera-legal/ │── app/ │ │── api/ # API handlers
-│ │── features/ # Main feature pages
-│ │── legal-guardian/ # Feature 1 UI
-│ │── smart-tax/ # Feature 2 UI
-│ │── litigation-assistance/ # Feature 3 UI
-│ │── layout.tsx # Root layout
-│── public/ # Static assets
-│── README.md # Project documentation
-│── package.json # Dependencies
-│── tailwind.config.ts # Tailwind CSS config
-
-
 ---
 
 ## **Backend API Endpoints**  
